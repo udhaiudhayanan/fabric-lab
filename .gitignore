@@ -1,0 +1,7 @@
+# Ignore temporary network files
+fabric-samples/test-network/organizations/
+fabric-samples/test-network/channel-artifacts/
+fabric-samples/test-network/system-genesis-block/
+**/*.tar.gz
+**/build/
+.DS_Store
