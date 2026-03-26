@@ -1,7 +1,7 @@
 # fabric-lab
 hyperledger project
 cat <<EOF > README.md
-# Exercise 4: Hyperledger Fabric Network with Java SDK
+# Hyperledger Fabric Network with Java SDK
 
 ## Project Overview
 This project demonstrates the creation and deployment of a blockchain network using **Hyperledger Fabric v2.5**.
