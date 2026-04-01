@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+}
+
+group 'org.hyperledger.fabric.samples'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.hyperledger.fabric:fabric-chaincode-shim:2.5.4'
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+shadowJar {
+    archiveBaseName.set('chaincode')
+    archiveClassifier.set('')
+    archiveVersion.set('')
+}

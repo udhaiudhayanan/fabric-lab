@@ -5,3 +5,17 @@ fabric-samples/test-network/system-genesis-block/
 **/*.tar.gz
 **/build/
 .DS_Store
+# Blockchain Security (CRITICAL)
+wallet/
+vars/
+organizations/peerOrganizations/
+organizations/ordererOrganizations/
+connection-*.json
+*.priv
+*.key
+*.pem
+
+# API & Environment
+.env
+.env.local
+dist/

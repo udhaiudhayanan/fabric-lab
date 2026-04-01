@@ -5,89 +5,51 @@
 package org.hyperledger.fabric.samples.assettransfer;
 
 import java.util.Objects;
-
 import org.hyperledger.fabric.contract.annotation.DataType;
 import org.hyperledger.fabric.contract.annotation.Property;
-
 import com.owlike.genson.annotation.JsonProperty;
 
 @DataType()
 public final class Asset {
 
     @Property()
-    private final String assetID;
+    private final String assetID; // Maps to MemberID
 
     @Property()
-    private final String color;
+    private final String owner; // Member Name
 
     @Property()
-    private final int size;
+    private final int appraisedValue; // Maps to Reward Points
 
-    @Property()
-    private final String owner;
-
-    @Property()
-    private final int appraisedValue;
-
-    public String getAssetID() {
-        return assetID;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public String getOwner() {
-        return owner;
-    }
-
-    public int getAppraisedValue() {
-        return appraisedValue;
-    }
-
-    public Asset(@JsonProperty("assetID") final String assetID, @JsonProperty("color") final String color,
-            @JsonProperty("size") final int size, @JsonProperty("owner") final String owner,
-            @JsonProperty("appraisedValue") final int appraisedValue) {
+    public Asset(@JsonProperty("assetID") final String assetID, 
+                 @JsonProperty("owner") final String owner,
+                 @JsonProperty("appraisedValue") final int appraisedValue) {
         this.assetID = assetID;
-        this.color = color;
-        this.size = size;
         this.owner = owner;
         this.appraisedValue = appraisedValue;
     }
 
+    public String getAssetID() { return assetID; }
+    public String getOwner() { return owner; }
+    public int getAppraisedValue() { return appraisedValue; }
+
     @Override
     public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-
-        if ((obj == null) || (getClass() != obj.getClass())) {
-            return false;
-        }
-
+        if (this == obj) return true;
+        if ((obj == null) || (getClass() != obj.getClass())) return false;
         Asset other = (Asset) obj;
-
-        return Objects.deepEquals(
-                new String[] {getAssetID(), getColor(), getOwner()},
-                new String[] {other.getAssetID(), other.getColor(), other.getOwner()})
-                &&
-                Objects.deepEquals(
-                new int[] {getSize(), getAppraisedValue()},
-                new int[] {other.getSize(), other.getAppraisedValue()});
+        return Objects.equals(getAssetID(), other.getAssetID()) &&
+               Objects.equals(getOwner(), other.getOwner()) &&
+               getAppraisedValue() == other.getAppraisedValue();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getAssetID(), getColor(), getSize(), getOwner(), getAppraisedValue());
+        return Objects.hash(getAssetID(), getOwner(), getAppraisedValue());
     }
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + "@" + Integer.toHexString(hashCode()) + " [assetID=" + assetID + ", color="
-                + color + ", size=" + size + ", owner=" + owner + ", appraisedValue=" + appraisedValue + "]";
+        return "Member [MemberID=" + assetID + ", Name=" + owner + ", Points=" + appraisedValue + "]";
     }
 }
