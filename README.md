@@ -1,25 +1,26 @@
-# fabric-lab
-hyperledger project
-cat <<EOF > README.md
-# Exercise 4: Hyperledger Fabric Network with Java SDK
+# 🛡️ AI-Audit: Model Integrity Ledger
 
-## Project Overview
-This project demonstrates the creation and deployment of a blockchain network using **Hyperledger Fabric v2.5**.
+A decentralized audit log for AI models built on **Hyperledger Fabric**. This project ensures that AI models haven't been tampered with by storing their cryptographic hashes on a permissioned ledger.
 
-## Components
-- **Network:** 2 Organizations (Org1, Org2) + 1 Orderer Service.
-- **Channel:** \`mychannel\` initialized and joined by all peers.
-- **Chaincode:** \`asset-transfer-basic\` written in **Java**.
-- **SDK:** Interacted with the network using the **Fabric Gateway SDK for Java**.
+## ✨ Key Features
+* **Glassmorphism UI:** Modern, transparent interface inspired by cosmos.so.
+* **Blockchain Integration:** Connects to a Hyperledger Fabric network via a Gateway.
+* **Real-time Auditing:** Instantly verify model history and integrity.
 
-## Transactions Performed
-1. **Setup:** Network initialized using Fabric binaries.
-2. **Install/Instantiate:** Java chaincode deployed via Lifecycle commands.
-3. **Invoke:** Successfully created asset on the ledger.
-4. **Query:** Verified world state retrieval of assets.
+## 🛠️ Tech Stack
+- **Frontend:** Next.js 15, Tailwind CSS
+- **Blockchain:** Hyperledger Fabric v2.5, Docker
+- **Language:** TypeScript
 
-EOF
+## 📸Screenshots
+![alt text](<Screenshot 2026-04-02 at 12.34.06 AM.png>)
 
-git add README.md
-git commit -m "Update README with professional project documentation"
-git push origin main
+## 🚀 How to Run Locally
+1. **Start the Network:** Run `./network.sh up` in the fabric-samples directory.
+2. **Deploy Chaincode:** Deploy the `aiaudit` chaincode to `mychannel`.
+3. **Run the App:**
+   ```bash
+   cd aiaudit-dapp
+   npm install
+   npm run dev
+   \```
